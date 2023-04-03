@@ -1,12 +1,18 @@
 <script setup lang="ts">
-import MainLayout from './layouts/main-layout.vue'
+
+import MainLayout from './layouts/main-layout.vue';
+
 </script>
 
 <template>
-  <div class="admin-app">
-    <MainLayout></MainLayout>
+  <div class="root-element h-inherit">
+    <main-layout />
   </div>
 </template>
 
-<style scoped>
+<style>
+.root-element{
+  height: 100%;
+  width: 100%;
+}
 </style>

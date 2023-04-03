@@ -3,4 +3,5 @@
 </template>
 
 <script lang="ts" setup>
+console.log(2)
 </script>
