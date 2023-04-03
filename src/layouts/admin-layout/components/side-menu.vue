@@ -7,7 +7,7 @@
         :index="i.path"
       >
         <template #title>{{ i.title }}</template>
-        <SideMenu :menuData="i.children"></SideMenu>
+        <SideMenu :menuData="i.children" />
       </el-sub-menu>
       <el-menu-item
         v-else 

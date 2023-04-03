@@ -3,10 +3,11 @@
     <website />
     <el-row>
       <el-col>
-        <el-menu class="side-el-menu" 
+        <el-menu 
+          class="side-el-menu" 
           background-color="#545c64"
           text-color="#fff"
-          >
+        >
             <side-menu  :menuData="menu" />
          </el-menu>
       </el-col>

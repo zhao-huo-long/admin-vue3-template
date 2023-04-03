@@ -3,6 +3,7 @@ import { onBeforeMount, ref } from 'vue';
 import { mockReq } from '../../utils'
 import router, { addRoutes, } from '../../router';
 import Side from './components/side.vue'
+import TopHeader from './components/top-header.vue'
 
 const loading = ref(false)
 
@@ -28,12 +29,11 @@ onBeforeMount(async () => {
       </div>
       <template v-if="!loading">
         <el-container class="h-inherit">
-          <el-aside width="220px"><side></side></el-aside>
+          <el-aside  width="220px"><side></side></el-aside>
           <el-container>
-            <el-header>Header</el-header>
+            <el-header style="padding: 0;"><TopHeader /></el-header>
             <el-main>
-              <router-view>
-              </router-view>
+              <router-view />
             </el-main>
           </el-container>
         </el-container>

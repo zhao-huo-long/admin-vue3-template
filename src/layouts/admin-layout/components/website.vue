@@ -2,7 +2,7 @@
   <div class="website" justify="center" align="center">
     <img width="36" src="vite.svg" alt="logo" />
     <div class="website-name">
-      Admin-Pro
+      AdminPro
     </div>
   </div>
 </template>
@@ -16,7 +16,8 @@
   justify-content: center;
   align-items: center;
   column-gap: 8px;
-  padding: 12px 0;
+  padding: 10px 0;
+  height: 50px;
   font-size: x-large;
 }
 </style>

@@ -15,3 +15,7 @@
 .h-inherit{
   height: inherit;
 }
+
+:focus-visible{
+  outline: none;
+}
