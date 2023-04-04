@@ -2,7 +2,7 @@
   <div class="website" justify="center" align="center">
     <img width="36" src="vite.svg" alt="logo" />
     <div class="website-name">
-      AdminPro
+      Admin-Vue
     </div>
   </div>
 </template>
@@ -18,6 +18,6 @@
   column-gap: 8px;
   padding: 10px 0;
   height: 50px;
-  font-size: x-large;
+  font-size: large;
 }
 </style>

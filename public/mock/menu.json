@@ -1,0 +1,30 @@
+[
+  {
+    "path": "/admin/utils",
+    "title": "模块",
+    "children": [
+      {
+        "path": "/admin/utils/login",
+        "title": "登陆"
+      }
+    ]
+  },
+  {
+    "path": "/admin/test",
+    "title": "测试模块",
+    "children": [
+      {
+        "path": "/admin/test/a",
+        "title": "a"
+      },
+      {
+        "path": "/admin/test/b",
+        "title": "b"
+      },
+      {
+        "path": "/admin/test/c",
+        "title": "c"
+      }
+    ]
+  }
+]

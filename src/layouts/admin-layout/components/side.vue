@@ -7,6 +7,8 @@
           class="side-el-menu" 
           background-color="#545c64"
           text-color="#fff"
+          :router="true"
+          :default-active="router.currentRoute.value.path"
         >
             <side-menu  :menuData="menu" />
          </el-menu>
@@ -20,8 +22,18 @@
 import website from './website.vue'
 import SideMenu from './side-menu.vue'
 import { menuConfig } from '../../../router/routes';
+import router from '../../../router';
+import { onMounted, ref } from 'vue';
+import request from '../../../request';
 
-const menu = menuConfig?.[0]?.children || []
+const menu = ref<any[]>([])
+
+onMounted(async () => {
+ 
+  const res = await request("/menu.json")
+  menu.value = res.data
+})
+
 
 </script>
 <style scoped lang="less">

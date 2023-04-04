@@ -23,6 +23,7 @@ import avatar from './avatar.vue'
   height: 50px;
   color: rgba(0, 0, 0, .65);
   padding: 10px;
+  font-size: x-larger;
   .nav-bread{
     display: flex;
     flex-wrap: wrap;

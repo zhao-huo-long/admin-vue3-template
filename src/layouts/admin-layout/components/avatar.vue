@@ -1,9 +1,9 @@
 <template>
   <div >
-    <el-dropdown role="" class="avatar">
+    <el-dropdown class="avatar">
       <div class="el-dropdown-link">
         <el-avatar style="padding:6px 0;" :size="36" />
-        <span>admin</span>
+        <div>admin</div>
         <el-icon  class="el-icon--right">
           <arrow-down />
         </el-icon>
@@ -31,6 +31,7 @@
   flex-direction: row;
   align-items: center;
   column-gap: 8px;
+  cursor: pointer;
   &::focus-visible{
     outline: none;
   }

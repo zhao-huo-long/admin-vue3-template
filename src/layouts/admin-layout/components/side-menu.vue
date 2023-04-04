@@ -14,6 +14,7 @@
         :title="i.title" 
         :index="i.path"
         @click="() => onClick({...i})"
+        :route="{}"
       >
         {{ i.title }}
       </el-menu-item>
@@ -22,14 +23,18 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+
+import { useRouter } from 'vue-router';
+
 defineProps<{
   menuData: MenuItem[] | MenuItem,
 }>()
+
 const router = useRouter()
+
 const onClick = (config: MenuItem) => {
   if(config.href){
-    window.open(config.href, '__blank')
+    window.open(config.href)
     return
   }
   if(config.path){

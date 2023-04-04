@@ -1,45 +1,23 @@
 <script lang="ts" setup>
-import { onBeforeMount, ref } from 'vue';
-import { mockReq } from '../../utils'
-import router, { addRoutes, } from '../../router';
+
 import Side from './components/side.vue'
 import TopHeader from './components/top-header.vue'
 
-const loading = ref(false)
-
-onBeforeMount(async () => {
-  // loading.value = true
-  // await mockReq({
-  //   data: {
-  //     name: 'jerry',
-  //     age: 28,
-  //   }
-  // })
-  // router.replace(router.currentRoute.value.fullPath)
-  //   .finally(() => loading.value = false)
-})
-
 </script>
-
 <template>
-  <div class="admin-layout h-inherit">
-    <div class="h-inherit" v-loading="loading">
-      <div v-if="loading">
-        ...
-      </div>
-      <template v-if="!loading">
-        <el-container class="h-inherit">
-          <el-aside  width="220px"><side></side></el-aside>
-          <el-container>
-            <el-header style="padding: 0;"><TopHeader /></el-header>
-            <el-main>
-              <router-view />
-            </el-main>
-          </el-container>
-        </el-container>
-      </template>
-    </div>
-  </div>
+  <el-container class="h-inherit">
+    <el-aside width="220px">
+      <side />
+    </el-aside>
+    <el-container>
+      <el-header style="padding: 0;">
+        <top-header />
+      </el-header>
+      <el-main>
+        <router-view />
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 
 <style></style>

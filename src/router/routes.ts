@@ -1,50 +1,67 @@
 import Login from '../pages/login/index.vue'
 import Index from '../pages/index/index.vue'
+import A from '../pages/a.vue'
+import B from '../pages/b.vue'
+import C from '../pages/c.vue'
 import admin from '../layouts/admin-layout/index.vue'
 import { parseMenuConfig } from '../utils'
+import { reqFaker } from 'js-utils-collection';
 
 
 /**
  * 静态路由
  */
 export const config: RouteMenuConfig[] = [
+]
+
+/**
+ * 菜单页面
+ */
+export const adminRoutes = [
+  {
+    title: '登陆',
+    path: '/admin/utils/login',
+    component: () => reqFaker(Login, 2000),
+  },
+  {
+    title: 'a',
+    path: '/admin/test/a',
+    component: () => reqFaker(A, 2000),
+  },
+  {
+    title: 'c',
+    path: '/admin/test/c',
+    component: () => reqFaker(C, 2000),
+  },
+  {
+    title: 'b',
+    path: '/admin/test/b',
+    component: () => reqFaker(B, 2000),
+  },
+]
+
+export const basicRoutes = [
+  {
+    path: '/login',
+    component: Login,
+  },
+  {
+    path: '/',
+    redirect: '/admin',
+  },
   {
     path: '/admin',
-    layout: admin,
+    component: admin,
+    name: 'admin',
     redirect: '/admin/index',
     children: [
       {
         title: '首页',
-        path: 'index',
+        path: '/admin/index',
         component: Index,
       },
-      {
-        title: 'utils',
-        path: 'utils',
-        children: [
-          {
-            title: '登陆',
-            path: 'login',
-            component: Login,
-          },
-        ],
-      },
-      {
-        href: 'https://baidu.com',
-        title: '百度'
-      }
     ]
-  },
-  {
-    path: '/login',
-    component: Login,
-    showInMenu: false
-  },
-  {
-    path: '/',
-    redirect: '/admin/index',
-    showInMenu: false
-  },
+  }
 ]
 
 
