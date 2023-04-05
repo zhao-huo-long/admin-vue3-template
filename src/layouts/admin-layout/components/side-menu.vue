@@ -1,21 +1,18 @@
 <template>
   <template v-if="Array.isArray(menuData)">
     <template v-for="i in menuData">
-      <el-sub-menu
-        v-if="i.children?.length" 
-        :title="i.title" 
-        :index="i.path"
-      >
-        <template #title>{{ i.title }}</template>
-        <SideMenu :menuData="i.children" />
+      <el-sub-menu v-if="i.children?.length" :title="i.title" :index="i.path">
+        <template #title>
+          {{ i.title }}
+        </template>
+        <SideMenu :menuData="i.children" :parents="[...parents, i.title]" />
       </el-sub-menu>
-      <el-menu-item
+      <el-menu-item 
         v-else 
         :title="i.title" 
-        :index="i.path"
-        @click="() => onClick({...i})"
-        :route="{}"
-      >
+        :index="i.path" 
+        @click="() => onClick({ ...i, parents: [...parents, i.title!] })"
+        :route="i.href ? {} : i.path">
         {{ i.title }}
       </el-menu-item>
     </template>
@@ -23,22 +20,15 @@
 </template>
 
 <script setup lang="ts">
-
-import { useRouter } from 'vue-router';
-
-defineProps<{
+const props = defineProps<{
   menuData: MenuItem[] | MenuItem,
+  parents: string[]
 }>()
 
-const router = useRouter()
-
-const onClick = (config: MenuItem) => {
-  if(config.href){
+const onClick = (config: MenuItem & { parents: string[] }) => {
+  if (config.href) {
     window.open(config.href)
     return
-  }
-  if(config.path){
-    router.push(config.path)
   }
 }
 

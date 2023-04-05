@@ -19,5 +19,3 @@ import TopHeader from './components/top-header.vue'
     </el-container>
   </el-container>
 </template>
-
-<style></style>

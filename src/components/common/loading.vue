@@ -1,7 +1,16 @@
 <template>
-  <el-progress v-show="!!v" :duration="4" :percentage="v" :stroke-width="2" class="progress"  :show-text="false" />
+  <el-progress 
+    v-show="!!v" 
+    :duration="5" 
+    :percentage="v" 
+    :stroke-width="3" 
+    class="progress"  
+    :show-text="false" 
+  />
 </template>
+
 <script lang="ts" setup>
+
 import { eventBus } from '../../utils'
 import { ref } from 'vue'
 import { interval } from 'js-utils-collection'
@@ -21,7 +30,7 @@ eventBus.on('progress', (type) => {
     v.value = 100
     setTimeout(() => {
       v.value = 0
-    }, 200)
+    }, 300)
   }
 })
 

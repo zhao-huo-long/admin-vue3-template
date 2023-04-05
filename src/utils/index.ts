@@ -108,11 +108,11 @@ export function parseMenuData(
   const map = treeToMap(originRoutes, "path");
   while (menuTree.length) {
     const item = menuTree.shift();
-    if(item?.children?.length){
+    if (item?.children?.length) {
       menuTree.unshift(...item.children)
     }
     if (typeof item?.path === 'string') {
-      if(!/^\//.test(item.path)){
+      if (!/^\//.test(item.path)) {
         console.warn(`[${item.path}], 请使用 / 开头的路径`)
         continue
       }
@@ -128,4 +128,12 @@ export function parseMenuData(
     }
   }
   return routesRes.filter(i => !!i.component);
+};
+
+/**
+ * 
+ * @param title 
+ */
+export function setWebTitle(title: string) {
+  document.title = title
 }

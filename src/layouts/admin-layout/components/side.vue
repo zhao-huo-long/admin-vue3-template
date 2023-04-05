@@ -10,7 +10,7 @@
           :router="true"
           :default-active="router.currentRoute.value.path"
         >
-            <side-menu  :menuData="menu" />
+          <side-menu :parents="[]"  :menuData="menu" />
          </el-menu>
       </el-col>
     </el-row>
@@ -29,11 +29,9 @@ import request from '../../../request';
 const menu = ref<any[]>([])
 
 onMounted(async () => {
- 
   const res = await request("/menu.json")
   menu.value = res.data
 })
-
 
 </script>
 <style scoped lang="less">
