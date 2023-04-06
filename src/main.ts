@@ -12,7 +12,11 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
 
-app
-.use(router)
-.use(elementPlus)
-.mount('#app')
+async function initApp(){
+  app
+  .use(router)
+  .use(elementPlus)
+  .mount('#app')
+}
+
+initApp()

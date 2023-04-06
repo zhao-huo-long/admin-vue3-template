@@ -1,17 +1,17 @@
 <template>
   <template v-if="Array.isArray(menuData)">
     <template v-for="i in menuData">
-      <el-sub-menu v-if="i.children?.length" :title="i.title" :index="i.path">
+      <el-sub-menu v-if="i.children?.length && !i.hide" :title="i.title" :index="i.path">
         <template #title>
           {{ i.title }}
         </template>
-        <SideMenu :menuData="i.children" :parents="[...parents, i.title]" />
+        <SideMenu :menuData="i.children" />
       </el-sub-menu>
-      <el-menu-item 
-        v-else 
+      <el-menu-item  
+        v-else-if="!i.hide" 
         :title="i.title" 
         :index="i.path" 
-        @click="() => onClick({ ...i, parents: [...parents, i.title!] })"
+        @click="() => onClick({ ...i, })" 
         :route="i.href ? {} : i.path">
         {{ i.title }}
       </el-menu-item>
@@ -22,10 +22,9 @@
 <script setup lang="ts">
 const props = defineProps<{
   menuData: MenuItem[] | MenuItem,
-  parents: string[]
 }>()
 
-const onClick = (config: MenuItem & { parents: string[] }) => {
+const onClick = (config: MenuItem) => {
   if (config.href) {
     window.open(config.href)
     return

@@ -8,15 +8,6 @@ import { parseMenuConfig } from '../utils'
 import { reqFaker } from 'js-utils-collection';
 
 
-/**
- * 静态路由
- */
-export const config: RouteMenuConfig[] = [
-]
-
-/**
- * 菜单页面
- */
 export const adminRoutes = [
   {
     title: '登陆',
@@ -65,9 +56,9 @@ export const basicRoutes = [
 ]
 
 
-const { routes, menu: menuConfig } = parseMenuConfig('', config)
+// const { routes, menu: menuConfig } = parseMenuConfig('', config)
 
-export {
-  routes, 
-  menuConfig,
-}
+// export {
+//   routes, 
+//   menuConfig,
+// }

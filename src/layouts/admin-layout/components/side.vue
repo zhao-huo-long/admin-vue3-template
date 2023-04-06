@@ -10,7 +10,7 @@
           :router="true"
           :default-active="router.currentRoute.value.path"
         >
-          <side-menu :parents="[]"  :menuData="menu" />
+          <side-menu  :menuData="menu" />
          </el-menu>
       </el-col>
     </el-row>
@@ -21,7 +21,6 @@
 <script lang="ts" setup>
 import website from './website.vue'
 import SideMenu from './side-menu.vue'
-import { menuConfig } from '../../../router/routes';
 import router from '../../../router';
 import { onMounted, ref } from 'vue';
 import request from '../../../request';

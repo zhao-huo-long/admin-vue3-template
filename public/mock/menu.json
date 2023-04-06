@@ -1,11 +1,22 @@
 [
   {
+    "path": "/admin/index",
+    "title": "首页",
+    "roles": ["basic"]
+  },
+  {
     "path": "/admin/utils",
     "title": "模块",
     "children": [
       {
         "path": "/admin/utils/login",
-        "title": "登陆"
+        "title": "登陆",
+        "roles": ["admin"]
+      },
+      {
+        "href": "https://www.baidu.com",
+        "title": "百度",
+        "roles": ["admin"]
       }
     ]
   },
@@ -15,15 +26,18 @@
     "children": [
       {
         "path": "/admin/test/a",
-        "title": "a"
+        "title": "a",
+        "roles": ["super-user", "admin"]
       },
       {
         "path": "/admin/test/b",
-        "title": "b"
+        "title": "b",
+        "roles": ["super-user"]
       },
       {
         "path": "/admin/test/c",
-        "title": "c"
+        "title": "c",
+        "roles": ["super-user", "basic"]
       }
     ]
   }

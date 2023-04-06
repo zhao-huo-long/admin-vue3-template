@@ -1,8 +1,8 @@
 /// <reference types="vite/client" />
 
-interface RouteMenuConfig {
+interface MenuItem {
   /**
-   * 
+   * 菜单路由路径
    */
   path?: string,
   /** 
@@ -18,34 +18,30 @@ interface RouteMenuConfig {
   /**
    * 菜单展示
    */
-  showInMenu?: boolean,
+  hide?: boolean,
 
   /**
-   * 布局组件
+   * 角色列表
    */
-  layout?: any
+  roles?: string[],
 
   /**
-   * component
+   * link
    */
-  component?: any
-
-  /**
-   * menuRoot
-   */
-  menuRoot?: false,
-  auth?: () => boolean,
   href?: string,
-  keep?: false,
+
+  /**
+   * keep
+   */
+  keep?: boolean,
+
+  /**
+   * uuid
+   */
   uuid?: string | number,
-  children?: VueMenuConfig[],
-  redirect?: string
-}
 
-interface MenuItem {
-  title?: string,
-  icon?: string,
-  path?: string,
-  href?: string,
-  children?: MenuItem[]
+  /**
+   * 子菜单
+   */
+  children?: MenuItem[],
 }
